@@ -1,7 +1,16 @@
 .someClass {
-
+    border: 1px solid green;
 }
 
 .error {
-    border: 1px solid red;
+    border: 2px solid red;
 }
+.container {
+    padding: 20px;
+}
+
+.btn {
+    display: inline-block;
+    margin-left: 5px;
+}
+
