@@ -1,5 +1,9 @@
 .someClass {
+    display: inline-block;
+}
 
+.affair {
+    margin-bottom: 5px;
 }
 
 .conteiner {
