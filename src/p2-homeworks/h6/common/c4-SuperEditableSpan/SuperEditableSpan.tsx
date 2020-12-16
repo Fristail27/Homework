@@ -27,20 +27,24 @@ const SuperEditableSpan: React.FC<SuperEditableSpanType> = (
         ...restProps// все остальные пропсы попадут в объект restProps
     }
 ) => {
+    console.log(restProps.value)
     const [editMode, setEditMode] = useState<boolean>(false);
     const {children, onDoubleClick, className, ...restSpanProps} = spanProps || {};
 
     const onEnterCallback = () => {
+        setEditMode(false)
         // setEditMode(); // выключить editMode при нажатии Enter
 
         onEnter && onEnter();
     };
     const onBlurCallback = (e: React.FocusEvent<HTMLInputElement>) => {
+        setEditMode(false)
         // setEditMode(); // выключить editMode при нажатии за пределами инпута
 
         onBlur && onBlur(e);
     };
     const onDoubleClickCallBack = (e: React.MouseEvent<HTMLSpanElement, MouseEvent>) => {
+        setEditMode(true)
         // setEditMode(); // включить editMode при двойном клике
 
         onDoubleClick && onDoubleClick(e);
@@ -51,16 +55,14 @@ const SuperEditableSpan: React.FC<SuperEditableSpanType> = (
     return (
         <>
             {editMode
-                ? (
-                    <SuperInputText
+                ? (<SuperInputText
                         autoFocus // пропсу с булевым значением не обязательно указывать true
                         onBlur={onBlurCallback}
                         onEnter={onEnterCallback}
 
                         {...restProps} // отдаём инпуту остальные пропсы если они есть (value например там внутри)
-                    />
-                ) : (
-                    <span
+                    />)
+                : (<span
                         onDoubleClick={onDoubleClickCallBack}
                         className={spanClassName}
 
@@ -68,8 +70,7 @@ const SuperEditableSpan: React.FC<SuperEditableSpanType> = (
                     >
                         {/*если нет захардкодженного текста для спана, то значение инпута*/}
                         {children || restProps.value}
-                    </span>
-                )
+                    </span>)
             }
         </>
     );
