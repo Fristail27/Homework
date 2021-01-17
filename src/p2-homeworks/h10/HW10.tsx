@@ -1,15 +1,25 @@
 import React from "react";
 import SuperButton from "../h4/common/c2-SuperButton/SuperButton";
+import style from "./HW10.module.css"
+import {useDispatch, useSelector} from "react-redux";
+import {AppStoreType} from "./bll/store";
+import {loadingAC} from "./bll/loadingReducer";
 
-function HW10() {
+function HW10({store}:any) {
     // useSelector, useDispatch
-    const loading = false;
+
+    const dispatch = useDispatch()
+    const loading = useSelector<AppStoreType, boolean> (state => state.loading.loading)
 
     const setLoading = () => {
-        // dispatch
+        dispatch(loadingAC(true))
+        setTimeout(()=> {
+            dispatch(loadingAC(false))
+        }, 3000)
         // setTimeout
         console.log("loading...");
     };
+
 
     return (
         <div>
@@ -19,7 +29,14 @@ function HW10() {
             {/*should work (должно работать)*/}
             {loading
                 ? (
-                    <div>крутилка...</div>
+                    <div className={style.container}>
+                        <div className={style.circle +" " +  style.circle1}></div>
+                        <div className={style.circle +" " +  style.circle2}></div>
+                        <div className={style.circle +" " +  style.circle3}></div>
+                        <div className={style.circle +" " +  style.circle4}></div>
+                        <div className={style.circle +" " +  style.circle5}></div>
+
+                    </div>
                 ) : (
                     <div>
                         <SuperButton onClick={setLoading}>set loading...</SuperButton>
