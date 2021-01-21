@@ -6,6 +6,7 @@ import HW9 from "../../h9/HW9";
 import HW10 from "../../h10/HW10";
 import {useSelector} from "react-redux";
 import {AppStoreType} from "../../h10/bll/store";
+import HW11 from "../../h11/HW11";
 
 const Junior: React.FC = () => {
     const loading = useSelector<AppStoreType, boolean>(state => state.loading.loading)
@@ -19,6 +20,7 @@ const Junior: React.FC = () => {
                 <HW8/>
                 <HW9/>
                 <HW10/>
+                <HW11/>
             </div>
     )
 }
