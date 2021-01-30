@@ -1,3 +1,7 @@
+.main {
+    height: 80vh;
+}
+
 .dark {
     background: dimgrey;
 }
@@ -14,10 +18,10 @@
     color: aqua;
 }
 
-.some {
+.light {
     background: lightgreen;
 }
 
-.some-text {
+.light-text {
     color: darkslateblue;
 }
