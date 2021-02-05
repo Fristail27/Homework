@@ -3,6 +3,7 @@ import s from "./HW12.module.css";
 import {useDispatch, useSelector} from "react-redux";
 import {AppStoreType} from "../h10/bll/store";
 import {changeThemeAC, themeStateType, themeType} from "./bll/themeReducer";
+import Request from "../h13/Request";
 
 
 function HW12() {
@@ -30,10 +31,13 @@ function HW12() {
                 </select>
             </div>
 
+
             {/*should work (должно работать)*/}
             {/*SuperSelect or SuperRadio*/}
 
             <hr/>
+
+            <Request/>
         </div>
     );
 }
